@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./styles.css";
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
-  const [todoText, setTodoText] = useState('');
+  const [todoText, setTodoText] = useState("");
 
   function addTodo() {
     if (todoText.trim() !== "") {
       setTodoList([...todoList, todoText]);
-      setTodoText('');
+      setTodoText("");
     }
   }
 
@@ -16,20 +17,15 @@ export default function App() {
   }
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1>To Do List</h1>
-      <input 
-        type='text' 
-        placeholder='Add Todo Name' 
+      <input
+        type="text"
+        placeholder="Add Todo Name"
         value={todoText}
-        onChange={handleInputChange} 
+        onChange={handleInputChange}
       />
-      <input 
-        type='button' 
-        id='add_todo' 
-        value='Add' 
-        onClick={addTodo} 
-      />
+      <input type="button" id="add_todo" value="Add" onClick={addTodo} />
       <ul>
         {todoList.map((todo, index) => (
           <li key={index}>{todo}</li>
